@@ -147,6 +147,11 @@ class SJVacancy(Superjob):
 
 
 class Vacancy(HHVacancy, SJVacancy, ):
+    '''
+    Обьеденяет полученные данные SuperJob и HeadHunter,
+    а также удаляет файлы с данными
+    '''
+
     @staticmethod
     def combine_json():
         a = json.loads(open('hhvacancy.json').read())
