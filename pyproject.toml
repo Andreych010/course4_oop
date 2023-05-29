@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "course4-oop"
+version = "0.1.0"
+description = ""
+authors = ["Андрей Марчук <marchuk-8282@mail.ru>"]
+readme = "README.md"
+packages = [{include = "course4_oop"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[tool.poetry.group.dev.dependencies]
+requests = "^2.31.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
