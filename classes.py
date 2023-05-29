@@ -149,7 +149,7 @@ class SJVacancy(Superjob):
 class Vacancy(HHVacancy, SJVacancy, ):
     '''
     Обьеденяет полученные данные SuperJob и HeadHunter,
-    а также удаляет файлы с данными
+    а также удаляет файлы с данными.
     '''
 
     @staticmethod
