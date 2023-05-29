@@ -32,7 +32,7 @@ def main():
                 print(f'Мы нашли для вас {count_vacancy} вакансий')
                 count = input('Введите количество вакансий, которые вы хотели бы посмотреть\n')
                 if not count.isdigit() or int(count) == 0 or int(count) > count_vacancy:
-                    print(f'Введите любое целое число больше ноля или введите q для выхода')
+                    print(f'Введите любое целое число больше ноля')
                     continue
                 else:
                     sorted_vacancy = con.sort_salary()
