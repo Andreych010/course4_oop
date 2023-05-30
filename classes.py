@@ -119,6 +119,7 @@ class SJVacancy(Superjob):
         '''
         Сохроняем вакансии Superjob
         '''
+
         try:
             list_vacancy = []
             for i in range(len(self.request)):
@@ -146,7 +147,7 @@ class SJVacancy(Superjob):
             json.dump(self.get_vacancy, f, indent=2)
 
 
-class Vacancy(HHVacancy, SJVacancy, ):
+class Vacancy(HHVacancy, SJVacancy):
     '''
     Обьеденяет полученные данные SuperJob и HeadHunter,
     а также удаляет файлы с данными.
@@ -177,6 +178,7 @@ class Vacancy_list:
     '''
     Показывает найденные вакансии
     '''
+
     __slots__ = ('source', 'vacancy_name', 'url', 'city', 'requirement', 'currency', 'salary_from', 'salary_to')
 
     def __init__(self, source, vacancy_name, url, city, requirement, currency, salary_from, salary_to):
@@ -221,6 +223,7 @@ class Connector:
     '''
     Класс коннектор к файлу в формате json
     '''
+
     __data_file = None
 
     def __init__(self, file_path: str):
@@ -239,6 +242,7 @@ class Connector:
         Проверяет, что файл существует, если нет то выбрасывает исключение.
         Возвращает переменную с данными
         '''
+
         if not os.path.isfile(self.__data_file):
             raise FileNotFoundError(f"Файл {self.__data_file} отсутствует")
         try:
@@ -257,11 +261,29 @@ class Connector:
         '''
         Запись данных в файл с сохранением структуры и исходных данных
         '''
+
         with open(f"{self.__data_file}", 'w+', encoding="UTF-8") as file:
             json.dump(data, file, indent=2, ensure_ascii=False)
 
-    def sort_salary(self):
+    def open_file(self):
         with open(self.__data_file, 'r', encoding='UTF-8') as f:
             data = json.load(f)
+            return data
+
+    def sort_salary_max(self):
+        '''
+        Сортировка по максимальной зарплате
+        '''
+
+        data = self.open_file()
         sorted_data = sorted(data, key=lambda x: x["salary_from"], reverse=True)
+        return sorted_data
+
+    def sort_salary_min(self):
+        '''
+        Сортировка по минимальной зарплате
+        '''
+
+        data = self.open_file()
+        sorted_data = sorted(data, key=lambda x: x["salary_from"], reverse=False)
         return sorted_data
