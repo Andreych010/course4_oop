@@ -1,4 +1,4 @@
-### Программа, которая получает информацию о вакансиях, по введённому пользователем ключевому слову, с платформ [SuperJob](https://russia.superjob.ru/?ysclid=ljlgm0d3a3802926390&from_refresh=1) и [HeadHunter](https://hh.ru/?ysclid=ljlgi8kxzx104832045&customDomain=1),сохраняет ее в файл и позволяет удобно работать с ней 
+### Программа, которая получает информацию о вакансиях, по введённому пользователем ключевому слову, с платформ [SuperJob](https://russia.superjob.ru/?ysclid=ljlgm0d3a3802926390&from_refresh=1) и [HeadHunter](https://hh.ru/?ysclid=ljlgi8kxzx104832045&customDomain=1), сохраняет ее в файл и позволяет удобно работать с ней 
 
 Запуск программы производится из файла `main.py`
 
